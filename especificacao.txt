@@ -1,0 +1,25 @@
+?Ricardo Leandro Biscola Vieira 		RA: 18238386	
+Gustavo Ventura				RA: 
+
+
+
+
+ Considerações: 
+
+Arvore vai sempre ter um nó, e eu sei onde eu paro. Como vou usar 26 Cidades, o percurso tem 26 cidades portanto (ordem 4^2 = 2^62 = 4P).
+	
+	Profundidade: Muito bom quando, eu conheço os vizinhos, guarda o melhor caminho (Menor). Preciso de informação para ser implementada, (Conhecer vizinhos).
+Então o desafio sera definir uma boa "Poda" da arvore para definir um bom caminho de conhecimento dos vizinhos.
+
+
+
+Linguagem usada: CPP
+
+
+Tipo de algoritmo usado: Busca em profundidade, é com conhecimento previo do  caminho, e implementação de poda na arvore.
+
+
+Funcionalidades implementadas --
+
+1.PROJETO BÁSICO [5 PONTOS] 
+Implemente um programa que tenha como entrada a cidade onde o cliente irá desembarcar e como saída o percurso visitando todas as cidades e retornando à cidade inicial. O programa deverá mostrar claramente todos os trechos percorridos, a distância de cada trecho e a distância total a ser percorrida.  

@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1558280257 source:c:\users\ricar\onedrive\햞ea de trabalho\guiaturismo\main.cpp
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	"Struct.h"
+	"Funcoes.h"
+	"Pilha.h"
+	<iostream>
+
+1558277560 c:\users\ricar\onedrive\햞ea de trabalho\guiaturismo\funcoes.h
+	<windows.h>
+
+1558086744 c:\users\ricar\onedrive\햞ea de trabalho\guiaturismo\struct.h
+	<windows.h>
+
+1558278719 c:\users\ricar\onedrive\햞ea de trabalho\guiaturismo\pilha.h
+	<windows.h>
+
