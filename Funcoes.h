@@ -47,14 +47,14 @@ void init_cidade (struct cidade vet_cid[MAX_CID]) //   Implementar
 
 int nao_visitado(cidade lista[MAX_CID])
 {
-    int j;
+    int j, ret = 0;
 
         for (j = 0; j < MAX_CID; j++)
         {
             if(lista[j].cid_visitada == 0)
-                return j;
+                ret ++;
         }
-    return -1;
+    return ret;
 }
 
 

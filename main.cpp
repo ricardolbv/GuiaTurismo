@@ -126,22 +126,38 @@ int main()
     insere_adj(cid_inic, grafo, Pilha);
 
     cout<<"\nPercurso: "<<vet_pritavel[cid_inic];
+    int nao_visitados;
 
-    for ( ; ; )
+    while (nao_visitados > 1)
     {
         desimpilha = remove(Pilha);
-        desimpilha.cid_vizinha->cid_visitada = 1;
+
 
         cout<<" ->"<<vet_pritavel[desimpilha.cid_vizinha->cod_cid];
         custo += desimpilha.distancia;
 
-        if (desimpilha.cid_vizinha->cod_cid == cid_inic)
-            break;
+        desimpilha.cid_vizinha->cid_visitada = 1;
+        //cout <<"\nCusto : "<< custo;
+
+        nao_visitados = nao_visitado(vet_cidades);
+
+
+            if(desimpilha.cid_vizinha->cod_cid == cid_inic && nao_visitados > 1)
+             {
+                desimpilha.cid_vizinha->cid_visitada = 0;
+                custo += desimpilha.distancia;
+             }
+
 
         init_pilha(Pilha,4);
         insere_adj(desimpilha.cid_vizinha->cod_cid,grafo, Pilha);
-    }
 
+
+
+
+
+    }
+   // cout<<"->"<<vet_pritavel[cid_inic];
     cout<<"\n\n Custo da viagem: "<<custo;
 
 
