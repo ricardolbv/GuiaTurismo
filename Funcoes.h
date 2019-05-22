@@ -57,4 +57,16 @@ int nao_visitado(cidade lista[MAX_CID])
     return ret;
 }
 
+int tem_adjacencia(caminho grafo[][MAX_CID], int cod_cid)
+{
+    int j;
+
+    for (j = 0; j < MAX_CID; j++)
+    {
+        if (grafo[cod_cid][j].adj == 1 && (grafo[cod_cid][j].cid_vizinha->cid_visitada == 0))
+            return 1; // Significa que tenho caminhos nao visitados para aquela cidade
+    }
+    return 0; //Significa que nao tenho  adjacencia para visitar
+}
+
 

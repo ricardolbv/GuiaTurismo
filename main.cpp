@@ -124,12 +124,16 @@ int main()
     cout<<"\n\n Otima Escolha "<<vet_pritavel[cid_inic];
 
     insere_adj(cid_inic, grafo, Pilha);
+    //vet_cidades[cid_inic].cid_visitada = 1;  //Esse comando caga nas cidades que ja estavam pegando
 
     cout<<"\nPercurso: "<<vet_pritavel[cid_inic];
+
     int nao_visitados;
 
-    while (nao_visitados > 1)
+    do
     {
+        if (Pilha == NULL)
+            cout<<"Pilha NULL :"<<vet_pritavel[desimpilha.cid_atual->cod_cid];
         desimpilha = remove(Pilha);
 
 
@@ -137,26 +141,37 @@ int main()
         custo += desimpilha.distancia;
 
         desimpilha.cid_vizinha->cid_visitada = 1;
+
         //cout <<"\nCusto : "<< custo;
 
         nao_visitados = nao_visitado(vet_cidades);
 
 
-            if(desimpilha.cid_vizinha->cod_cid == cid_inic && nao_visitados > 1)
+            if(desimpilha.cid_vizinha->cod_cid == cid_inic && nao_visitados >=1) // Mexi aqui
              {
                 desimpilha.cid_vizinha->cid_visitada = 0;
-                custo += desimpilha.distancia;
+                cout<<" Desvisitei";
              }
 
+            if(desimpilha.cid_vizinha->cod_cid == cid_inic && nao_visitados ==0)
+            {
+                cout<<"HEre";
+                break;
+            }
 
         init_pilha(Pilha,4);
-        insere_adj(desimpilha.cid_vizinha->cod_cid,grafo, Pilha);
+        if(tem_adjacencia(grafo,desimpilha.cid_vizinha->cod_cid))
+            insere_adj(desimpilha.cid_vizinha->cod_cid,grafo, Pilha);
+            else
+            {
+                cout<<"->#"<<vet_pritavel[desimpilha.cid_atual->cod_cid];
+                custo += desimpilha.distancia;
+                desimpilha.cid_vizinha->cid_visitada =1;
+                insere_adj(desimpilha.cid_atual->cod_cid,grafo, Pilha);
 
+            }
 
-
-
-
-    }
+    }while (nao_visitados != 0);
    // cout<<"->"<<vet_pritavel[cid_inic];
     cout<<"\n\n Custo da viagem: "<<custo;
 
