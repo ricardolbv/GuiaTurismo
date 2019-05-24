@@ -1,7 +1,7 @@
 #ifndef __WINDOWS_H
 #include <windows.h>
 #endif
-#define MAX_CID 8
+#define MAX_CID 24
 
 // Possivel problema na pilha ---  Nao conisgo por null na inicialização!! ou seja sempre estoura o desimpilhamento
 

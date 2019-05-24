@@ -1,19 +1,34 @@
-#define MAX_CID 8
+#define MAX_CID 24
 
-#define PORTLAND 0
-#define SEATLE 1
-#define BOISE 2
-#define SAN_FRANCISCO 3
-#define LAKE_TAHOE 4
-#define LOS_ANGELES 5
-#define SAN_DIEGO 6
-#define PALM_SPRINGS 7
 
+#define SEATLE 0
+#define BOISE 1
+#define YELLOWSTONE 2
+#define MINNEAPOLIS 3
+#define MILWAUKEE 4
+#define CHICAGO 5
+#define DETROIT 6
+#define ALBANY 7
+#define BOSTON 8
+#define NOVA_YORK 9
+#define WASHIGTON 10
+#define RICHMOND 11
+#define ATLANTA 12
+#define ORLANDO 13
+#define FORT_LAUDERDALE 14
+#define MIAMI 15
+#define NOVA_ORLEANS 16
+#define HOUSTON 17
+#define SAN_ANTONIO 18
+#define PHOENIX 19
+#define SAN_DIEGO 20
+#define LOS_ANGELES 21
+#define SAN_FRANCISCO 22
+#define PORTLAND 23
 
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
-#define MAX_CID 8
 #include "Struct.h"
 #include "Funcoes.h"
 #include "Pilha.h"
@@ -22,15 +37,30 @@
 
 using namespace std;
 
-string vet_pritavel[MAX_CID] = {"PORTLAND",
+string vet_pritavel[MAX_CID] = {
 "SEATLE",
 "BOISE",
-"SAN_FRANCISCO",
-"LAKE_TAHOE",
-"LOS_ANGELES",
-"SAN_DIEGO",
-"PALM_SPRINGS"};
-
+"YELLOWSTONE",
+"MINNEAPOLIS",
+"MILWAUKEE",
+"CHICAGO",
+"DETROIT",
+"ALBANY",
+"BOSTON",
+"NOVA YORK",
+"WASHIGTON",
+"RICHMOND",
+"ATLANTA",
+"ORLANDO",
+"FORT LAUDERDALE",
+"MIAMI",
+"NOVA ORLEANS",
+"HOUSTON",
+"SAN ANTONIO",
+"PHOENIX",
+"SAN DIEGO",
+"LOS ANGELES",
+"SAN FRANCISCO","PORTLAND"};
 
 void printa_cidades (struct cidade vet_cid[MAX_CID]);
 void printa_grafo(caminho grafo[MAX_CID][MAX_CID]);
@@ -61,55 +91,149 @@ int main()
     init_pilha(Pilha,MAX_CID);
 
     // ______INSERINDO CIDADES NA LISTA_______
-    insere_cidade(vet_cidades, PORTLAND);
     insere_cidade(vet_cidades, SEATLE);
     insere_cidade(vet_cidades, BOISE);
-    insere_cidade(vet_cidades, SAN_FRANCISCO);
-    insere_cidade(vet_cidades, LAKE_TAHOE);
-    insere_cidade(vet_cidades, LOS_ANGELES);
+    insere_cidade(vet_cidades, YELLOWSTONE);
+    insere_cidade(vet_cidades, MINNEAPOLIS);
+    insere_cidade(vet_cidades, MILWAUKEE);
+    insere_cidade(vet_cidades, CHICAGO);
+    insere_cidade(vet_cidades, DETROIT);
+    insere_cidade(vet_cidades, ALBANY);
+    insere_cidade(vet_cidades, BOSTON);
+    insere_cidade(vet_cidades, NOVA_YORK);
+    insere_cidade(vet_cidades, WASHIGTON);
+    insere_cidade(vet_cidades, RICHMOND);
+    insere_cidade(vet_cidades, ATLANTA);
+    insere_cidade(vet_cidades, ORLANDO);
+    insere_cidade(vet_cidades, FORT_LAUDERDALE);
+    insere_cidade(vet_cidades, MIAMI);
+    insere_cidade(vet_cidades, NOVA_ORLEANS);
+    insere_cidade(vet_cidades, HOUSTON);
+    insere_cidade(vet_cidades, SAN_ANTONIO);
+    insere_cidade(vet_cidades, PHOENIX);
     insere_cidade(vet_cidades, SAN_DIEGO);
-    insere_cidade(vet_cidades, PALM_SPRINGS);
+    insere_cidade(vet_cidades, LOS_ANGELES);
+    insere_cidade(vet_cidades, SAN_FRANCISCO);
+    insere_cidade(vet_cidades, PORTLAND);
+
 
     //_______INSERINDO CAMINHOS NO GRAFO _______
-    //## PORTLAND:
-    insere_caminho(grafo, vet_cidades[PORTLAND], vet_cidades[SEATLE], 170);
-    insere_caminho(grafo, vet_cidades[PORTLAND], vet_cidades[BOISE], 420);
-    insere_caminho(grafo, vet_cidades[PORTLAND], vet_cidades[SAN_FRANCISCO], 640);
-    insere_caminho(grafo, vet_cidades[PORTLAND], vet_cidades[LAKE_TAHOE], 580);
-
     //## SEATLE:
-    insere_caminho(grafo, vet_cidades[SEATLE], vet_cidades[SEATLE], 170);
     insere_caminho(grafo, vet_cidades[SEATLE], vet_cidades[BOISE], 500);
+    insere_caminho(grafo, vet_cidades[SEATLE], vet_cidades[PORTLAND], 170);
 
     //## BOISE:
-    insere_caminho(grafo, vet_cidades[BOISE], vet_cidades[PORTLAND], 420);
     insere_caminho(grafo, vet_cidades[BOISE], vet_cidades[SEATLE], 500);
-    insere_caminho(grafo, vet_cidades[BOISE], vet_cidades[LAKE_TAHOE], 420);
+    insere_caminho(grafo, vet_cidades[BOISE], vet_cidades[YELLOWSTONE], 670);
+    insere_caminho(grafo, vet_cidades[BOISE], vet_cidades[PORTLAND], 670);
 
-    //## SAN_FRANCISCO:
-    insere_caminho(grafo, vet_cidades[SAN_FRANCISCO], vet_cidades[PORTLAND], 640);
-    insere_caminho(grafo, vet_cidades[SAN_FRANCISCO], vet_cidades[LAKE_TAHOE], 300);
-    insere_caminho(grafo, vet_cidades[SAN_FRANCISCO], vet_cidades[LOS_ANGELES], 380);
 
-    //## LAKE TAHOE:
-    insere_caminho(grafo, vet_cidades[LAKE_TAHOE], vet_cidades[PORTLAND], 580);
-    insere_caminho(grafo, vet_cidades[LAKE_TAHOE], vet_cidades[BOISE], 420);
-    insere_caminho(grafo, vet_cidades[LAKE_TAHOE], vet_cidades[SAN_FRANCISCO], 300);
-    insere_caminho(grafo, vet_cidades[LAKE_TAHOE], vet_cidades[PALM_SPRINGS], 780);
+    //## YELLOWSTONE:
+    insere_caminho(grafo, vet_cidades[YELLOWSTONE], vet_cidades[MINNEAPOLIS], 1340);
+    insere_caminho(grafo, vet_cidades[YELLOWSTONE], vet_cidades[BOISE], 670);
 
-    //## LOS ANGELES:
-    insere_caminho(grafo, vet_cidades[LOS_ANGELES], vet_cidades[SAN_FRANCISCO], 380);
-    insere_caminho(grafo, vet_cidades[LOS_ANGELES],  vet_cidades[SAN_DIEGO], 120);
-    insere_caminho(grafo, vet_cidades[LOS_ANGELES], vet_cidades[PALM_SPRINGS], 160);
 
-    //## SAN DIEGO:
-    insere_caminho(grafo, vet_cidades[SAN_DIEGO], vet_cidades[LOS_ANGELES], 120);
-    insere_caminho(grafo, vet_cidades[SAN_DIEGO], vet_cidades[PALM_SPRINGS], 140);
+    //## MINNEAPOLIS:
+    insere_caminho(grafo, vet_cidades[MINNEAPOLIS], vet_cidades[MILWAUKEE], 340);
+    insere_caminho(grafo, vet_cidades[MINNEAPOLIS], vet_cidades[YELLOWSTONE], 1340);
+    insere_caminho(grafo, vet_cidades[MINNEAPOLIS], vet_cidades[CHICAGO], 410);
 
-    //## PALM SPRINGS:
-    insere_caminho(grafo, vet_cidades[PALM_SPRINGS], vet_cidades[LAKE_TAHOE], 780);
-    insere_caminho(grafo, vet_cidades[PALM_SPRINGS], vet_cidades[LOS_ANGELES], 160);
-    insere_caminho(grafo, vet_cidades[PALM_SPRINGS], vet_cidades[SAN_DIEGO], 140);
+    //##MILWAUKEE:
+    insere_caminho(grafo, vet_cidades[MILWAUKEE], vet_cidades[CHICAGO], 90);
+    insere_caminho(grafo, vet_cidades[MILWAUKEE], vet_cidades[MINNEAPOLIS], 340);
+
+
+    //## CHICAGO:
+    insere_caminho(grafo, vet_cidades[CHICAGO], vet_cidades[DETROIT], 280);
+    insere_caminho(grafo, vet_cidades[CHICAGO],  vet_cidades[MILWAUKEE], 90);
+    insere_caminho(grafo, vet_cidades[CHICAGO], vet_cidades[MINNEAPOLIS], 410);
+
+    //## DETROIT:
+   // insere_caminho(grafo, vet_cidades[DETROIT], vet_cidades[ALBANY], 650);
+    insere_caminho(grafo, vet_cidades[DETROIT], vet_cidades[CHICAGO], 280);
+   // insere_caminho(grafo, vet_cidades[DETROIT], vet_cidades[NOVA_YORK], 640);
+    insere_caminho(grafo, vet_cidades[DETROIT], vet_cidades[WASHIGTON], 530);
+
+    //## ALBANY:
+   // insere_caminho(grafo, vet_cidades[ALBANY], vet_cidades[DETROIT], 650);
+   // insere_caminho(grafo, vet_cidades[ALBANY], vet_cidades[BOSTON], 180);
+   // insere_caminho(grafo, vet_cidades[ALBANY], vet_cidades[NOVA_YORK], 150);
+
+     //## BOSTON:
+    // insere_caminho(grafo, vet_cidades[BOSTON], vet_cidades[ALBANY], 180);
+    // insere_caminho(grafo, vet_cidades[BOSTON], vet_cidades[NOVA_YORK], 280);
+
+     //## NOVA YORK:
+    // insere_caminho(grafo, vet_cidades[NOVA_YORK], vet_cidades[WASHIGTON], 240);
+    // insere_caminho(grafo, vet_cidades[NOVA_YORK], vet_cidades[BOSTON], 280);
+    // //insere_caminho(grafo, vet_cidades[NOVA_YORK], vet_cidades[DETROIT], 640);
+    // insere_caminho(grafo, vet_cidades[NOVA_YORK], vet_cidades[ALBANY], 150);
+
+     //## WASHIGNTON:
+     insere_caminho(grafo, vet_cidades[WASHIGTON], vet_cidades[RICHMOND], 200);
+     insere_caminho(grafo, vet_cidades[WASHIGTON], vet_cidades[DETROIT], 530);
+     //insere_caminho(grafo, vet_cidades[WASHIGTON], vet_cidades[NOVA_YORK], 240);
+
+    //## RICHMOND:
+    insere_caminho(grafo, vet_cidades[RICHMOND], vet_cidades[WASHIGTON], 200);
+    insere_caminho(grafo, vet_cidades[RICHMOND], vet_cidades[ATLANTA], 560);
+
+    //##ATLANTA:
+     insere_caminho(grafo, vet_cidades[ATLANTA], vet_cidades[RICHMOND], 560);
+     insere_caminho(grafo, vet_cidades[ATLANTA], vet_cidades[NOVA_ORLEANS], 470);
+     insere_caminho(grafo, vet_cidades[ATLANTA], vet_cidades[ORLANDO], 440);
+
+     //##ORLANDO:
+     //insere_caminho(grafo, vet_cidades[ORLANDO], vet_cidades[FORT_LAUDERDALE],180);
+     insere_caminho(grafo, vet_cidades[ORLANDO], vet_cidades[ATLANTA], 440);
+     insere_caminho(grafo, vet_cidades[ORLANDO], vet_cidades[NOVA_ORLEANS], 640);
+     //insere_caminho(grafo, vet_cidades[ORLANDO], vet_cidades[MIAMI], 230);
+
+     //##FORT_LAUDERDALE:
+     // insere_caminho(grafo, vet_cidades[FORT_LAUDERDALE], vet_cidades[MIAMI],130);
+     // insere_caminho(grafo, vet_cidades[FORT_LAUDERDALE], vet_cidades[ORLANDO],180);
+
+      //##MIAMI:
+      //insere_caminho(grafo, vet_cidades[MIAMI], vet_cidades[FORT_LAUDERDALE], 130);
+     // insere_caminho(grafo, vet_cidades[MIAMI], vet_cidades[ORLANDO], 230);
+      //insere_caminho(grafo, vet_cidades[MIAMI], vet_cidades[NOVA_ORLEANS], 860);
+
+      //##NOVA ORLEANS:
+      insere_caminho(grafo, vet_cidades[NOVA_ORLEANS], vet_cidades[ORLANDO], 640);
+     // insere_caminho(grafo, vet_cidades[NOVA_ORLEANS], vet_cidades[MIAMI], 860);
+      insere_caminho(grafo, vet_cidades[NOVA_ORLEANS], vet_cidades[HOUSTON], 530);
+      insere_caminho(grafo, vet_cidades[NOVA_ORLEANS], vet_cidades[ATLANTA], 470);
+
+
+      //##HOUSTON:
+       insere_caminho(grafo, vet_cidades[HOUSTON], vet_cidades[NOVA_ORLEANS], 530);
+       insere_caminho(grafo, vet_cidades[HOUSTON], vet_cidades[SAN_ANTONIO], 310);
+
+       //##SAN ANTONIO:
+       insere_caminho(grafo, vet_cidades[SAN_ANTONIO], vet_cidades[HOUSTON], 310);
+       insere_caminho(grafo, vet_cidades[SAN_ANTONIO], vet_cidades[PHOENIX], 990);
+
+       //##PHOENIX:
+       insere_caminho(grafo, vet_cidades[PHOENIX], vet_cidades[SAN_ANTONIO], 990);
+       insere_caminho(grafo, vet_cidades[PHOENIX], vet_cidades[SAN_DIEGO], 350);
+
+       //#SAN DIEGO:
+       insere_caminho(grafo, vet_cidades[SAN_DIEGO], vet_cidades[LOS_ANGELES], 120);
+       insere_caminho(grafo, vet_cidades[SAN_DIEGO], vet_cidades[PHOENIX], 350);
+
+       //#LOS ANGELES:
+       insere_caminho(grafo, vet_cidades[LOS_ANGELES], vet_cidades[SAN_DIEGO], 120);
+       insere_caminho(grafo, vet_cidades[LOS_ANGELES], vet_cidades[SAN_FRANCISCO], 380);
+
+       //#SAN FRANSCISCO:
+       insere_caminho(grafo, vet_cidades[SAN_FRANCISCO], vet_cidades[PORTLAND], 640);
+       insere_caminho(grafo, vet_cidades[SAN_FRANCISCO], vet_cidades[LOS_ANGELES], 380);
+
+       //#PORTLAND:
+       insere_caminho(grafo, vet_cidades[PORTLAND], vet_cidades[SEATLE], 170);
+       insere_caminho(grafo, vet_cidades[PORTLAND], vet_cidades[SAN_FRANCISCO], 640);
+
+
 
 
     //__________Testes____________
@@ -130,12 +254,9 @@ int main()
 
     int nao_visitados;
 
-    do
+   do
     {
-        if (Pilha == NULL)
-            cout<<"Pilha NULL :"<<vet_pritavel[desimpilha.cid_atual->cod_cid];
         desimpilha = remove(Pilha);
-
 
         cout<<" ->"<<vet_pritavel[desimpilha.cid_vizinha->cod_cid];
         custo += desimpilha.distancia;
@@ -144,25 +265,25 @@ int main()
 
         //cout <<"\nCusto : "<< custo;
 
-        nao_visitados = nao_visitado(vet_cidades);
 
 
-            if(desimpilha.cid_vizinha->cod_cid == cid_inic && nao_visitados >=1) // Mexi aqui
+              nao_visitados = nao_visitado(vet_cidades);
+            if(desimpilha.cid_vizinha->cod_cid == cid_inic && nao_visitados >=2) //
              {
-                desimpilha.cid_vizinha->cid_visitada = 0;
-                cout<<" Desvisitei";
+            desimpilha.cid_vizinha->cid_visitada = 0;
+
+              cout<<" [Voltei] ->>";
+              custo += desimpilha.distancia;
+                break;
              }
 
-            if(desimpilha.cid_vizinha->cod_cid == cid_inic && nao_visitados ==0)
-            {
-                cout<<"HEre";
-                break;
-            }
 
         init_pilha(Pilha,4);
         if(tem_adjacencia(grafo,desimpilha.cid_vizinha->cod_cid))
             insere_adj(desimpilha.cid_vizinha->cod_cid,grafo, Pilha);
-            else
+           // if (desimpilha.cid_vizinha->cod_cid == ATLANTA || desimpilha.cid_vizinha->cod_cid == DETROIT)
+         //       insere(grafo[desimpilha.cid_vizinha->cod_cid][desimpilha.cid_vizinha->cod_cid +1],Pilha);
+            else if(!tem_adjacencia(grafo, desimpilha.cid_vizinha->cod_cid))
             {
                 cout<<"->#"<<vet_pritavel[desimpilha.cid_atual->cod_cid];
                 custo += desimpilha.distancia;
@@ -172,7 +293,7 @@ int main()
             }
 
     }while (nao_visitados != 0);
-   // cout<<"->"<<vet_pritavel[cid_inic];
+     cout<<" ->"<<vet_pritavel[cid_inic];
     cout<<"\n\n Custo da viagem: "<<custo;
 
 
@@ -206,12 +327,13 @@ void printa_cidades (struct cidade vet_cid[MAX_CID])
 
 void insere_adj(int cod_cid, caminho grafo[][MAX_CID], caminho ** Pilha)
 {
-    int j;
-    for (j = 0; j < MAX_CID; j++)
+    int j = 0;
+    for (; j < MAX_CID; j++)
     {
         if (grafo[cod_cid][j].adj == 1 && (grafo[cod_cid][j].cid_vizinha->cid_visitada != 1))
         {
             insere(grafo[cod_cid][j],Pilha);
+
            // cout<<"Inserindo "<<vet_pritavel[j];
         }
     }
